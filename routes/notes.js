@@ -33,7 +33,7 @@ notes.push(newNote); res.status(201).json(newNote);
 // PUT /notes/:id - update note
 router.put('/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    const { 'title, content' } = req.body;
+    const { title, content } = req.body;
     const noteindex = notes.findIndex(n => n.id === id);
     
     if (noteindex === -1) {
@@ -54,14 +54,18 @@ router.put('/:id', (req, res) => {
     res.json(notes[noteIndex]);
 });
 
-// DELETE note
+// DELETE /note/:id - Delete a note
 router.delete('/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    const index = notes.findIndex(n => n.id === id);
-    if (index === -1) return res.status(404).json({ message: "Note not found" });
-    
-    const deleted = notes.splice(index, 1);
-    res.json(deleted[0]);
+    const noteIndex = notes.findIndex(n => n.id === id);
+   
+    if (noteIndex === -1) {
+      return res.status(404).json({ message: "Note not found" });
+    }
+
+
+    const deletedNote = notes.splice(noteIndex, 1);
+    res.json({ message: "Note deleted", note: deletedNote[0] });
 });
 
 module.exports = router;
