@@ -30,17 +30,28 @@ const newNote = {
 notes.push(newNote); res.status(201).json(newNote);
 });
 
-// PUT update note
+// PUT /notes/:id - update note
 router.put('/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    const note = notes.find(n => n,id === id);
-    if (!note) return res.status(404).json({ message: "Note not found" });
+    const { 'title, content' } = req.body;
+    const noteindex = notes.findIndex(n => n.id === id);
+    
+    if (noteindex === -1) {
+      return res.status(404).json({ message: "Note not found" });
+    }
 
-    const { title, content } = req.body;
-    if (title) note.title = title;
-    if (content) note.content = content;
+    if (!title ||!content) {
+        return res.status(400).json({ message: "Title and content required" });
+    }
 
-    res.json(note);
+    notes[noteIndex] = {
+     ...notes[noteIndex],
+     title,
+     content,
+     updatedAt: new Date().toISOString()
+    };
+
+    res.json(notes[noteIndex]);
 });
 
 // DELETE note
