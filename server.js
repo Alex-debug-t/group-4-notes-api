@@ -18,7 +18,7 @@ app.use((req, res) => {
 // General error handler
 app.use((err, req, res, next) => {
     console.error(err.stacks);
-    res.status(500).json({ "message: Something went wrong!"});
+    res.status(500).json({ message: "Something went wrong!"});
 });
 const PORT = 3000;
 app.listen(PORT, () => {
