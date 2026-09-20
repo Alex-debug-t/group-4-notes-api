@@ -3,6 +3,9 @@ const app = express();
 // THIS IS THE IMPORTANT PART - The middleware
 app.use(express.json()); // This allows your API to read JSON body like {tittle: "Hello World"}
 
+const notesRoutes = require('./routes/notes');
+app.use('/notes', notesRoutes);
+
 app.get('/', (req, res) => {
     res.send('Group 4 Notes API is running...');
 });
