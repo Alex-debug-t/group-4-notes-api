@@ -1,6 +1,6 @@
 # Group 4 - Notes API
 
-A simple RESTful API for managing notes. Built with Node.js and Express.
+A simple Express.js API for managing notes. Built with Node.js and Express.
 
 ## Group Members
 1. {Alex Amos} - Repo Owner
@@ -20,7 +20,7 @@ We use the exact same structue as given:
 ```json
 {
 - "id": 6,
-- "titte": "Lecture Notes",
+- "title": "Lecture Notes",
 - "content": " Discussed task assignmets for group 4",
 "createdAt": "2026-09-18"
 }
