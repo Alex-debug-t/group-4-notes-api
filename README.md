@@ -1,26 +1,27 @@
 # Group 4 - Notes API
 
-A simple Express.js API for managing notes. Built with Node.js and Express.
+Simple REST API for managing notes built with Node.js, Express.
 
-## Group Members
-1. {Alex Amos} - Repo Owner
-2. Laureen - Express Setup
-3. Tolex - Mock Data
-4. Eze - POST Route
-5. Gerald - GET Routes
-6. Shedrack - PUT Route
-7. Geraldine - DELETE Route
-8. Peter - Logger
-9. Micheal - Error Handler
-10. Habib - Postman
-11. Bright - Slides
+## Team Members
+1. Setup - Member 1
+2. GET /notes - Member 2
+3. GET /notes/:id - Member 3
+4. POST /notes - Member 4
+5. PUT /notes/:id - Member 5
+6. PATCH /notes/:id - Member 6
+7. DELETE /notes/:id - Member 7
+8. Error Handling - Member 8
+9. Documentation - Member 9
 
-## Data Model
-We use the exact same structue as given:
-```json
-{
-- "id": 6,
-- "title": "Lecture Notes",
-- "content": " Discussed task assignmets for group 4",
-"createdAt": "2026-09-18"
-}
+## Installation
+npm install
+node server.js
+
+## API Endpoints
+| Method | Endpoint | Description |
+| GET | /notes | Get all notes |
+| GET | /notes/:id | Get single note |
+| POST | /notes | Create note |
+| PUT | /notes/:id | Update full note |
+| PATCH | /notes/:id | Update partial |
+| DELETE | /notes/:id | Delete note |
